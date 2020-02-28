@@ -80,6 +80,27 @@
 
     <div class="slant-1"></div>
 
+   
+      {{#if success_messages}}
+      <div class="alert alert-success alert-dismissible  show mt-2 auto-hide" role="alert" style="color: black">
+        <strong>{{success_messages}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      {{/if}}
+    
+      {{#if error_messages}}
+      <div class="alert alert-danger alert-dismissible  show mt-2 auto-hide" role="alert" style="color: black">
+        <strong>{{error_messages}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      {{/if}}
+   
+
+
     
     
   <div class="site-section first-section" data-aos="fade">
@@ -96,7 +117,7 @@
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="font-weight-bold" for="email">Email</label>
-                  <input type="email" id="email" class="form-control" placeholder="Email Address">
+                  <input type="email" id="email" name="email" class="form-control" placeholder="Email Address">
                 </div>
               </div>
 
@@ -104,7 +125,7 @@
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="key">Password</label>
-                  <input type="password" id="phone" class="form-control" placeholder="Password">
+                  <input type="password" id="phone" name="password" class="form-control" placeholder="Password">
                 </div>
               </div>
               <div class="container">
@@ -179,7 +200,13 @@
 
   <script src="js/main.js"></script>
 
-  
+  <script>
+    $(document).ready(function () {
+      setTimeout(function () {
+        $('.auto-hide').slideUp(300);
+      }, 7000);
+    });
+  </script>
 
   </body>
 </html>

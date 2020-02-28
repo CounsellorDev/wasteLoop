@@ -95,7 +95,7 @@
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="fullname">Full Name</label>
-                  <input type="text" name="fullname" class="form-control" placeholder="Full Name">
+                  <input type="text" name="fullName" class="form-control" placeholder="Full Name">
                 </div>
               </div>
               <div class="row form-group">
@@ -109,7 +109,7 @@
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="phone">Phone</label>
-                  <input type="text" name="phoneNo" class="form-control" placeholder="Phone #">
+                  <input type="text" name="phoneNumber" class="form-control" placeholder="+23409034093330">
                 </div>
               </div>
 
@@ -123,14 +123,14 @@
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="fullname">Choose a Password</label>
-                  <input type="password" name="psw" class="form-control" placeholder="Choose a Password">
+                  <input type="password" name="password" class="form-control" placeholder="Choose a Password">
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="fullname">Enter your Password</label>
-                  <input type="password" name="cpsw" class="form-control" placeholder="Enter Your Password Again">
+                  <input type="password" name="confirmPassword" class="form-control" placeholder="Enter Your Password Again">
                 </div>
               </div>
 
@@ -202,7 +202,13 @@
 
   <script src="js/main.js"></script>
 
-  
+  <script>
+    $(document).ready(function () {
+      setTimeout(function () {
+        $('.auto-hide').slideUp(300);
+      }, 7000);
+    });
+  </script>
 
   </body>
 </html>

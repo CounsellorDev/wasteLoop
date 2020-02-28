@@ -55,6 +55,24 @@
     </div>
   </header>
 
+  {{#if success_messages}}
+  <div class="alert alert-success alert-dismissible  show mt-2 auto-hide" role="alert" style="color: black">
+    <strong>{{success_messages}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+  {{/if}}
+  
+  {{#if error_messages}}
+  <div class="alert alert-danger alert-dismissible  show mt-2 auto-hide" role="alert" style="color: black">
+    <strong>{{error_messages}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+  {{/if}}
+
   <!-- ACTIONS -->
   <section id="action" class="py-4 mb-4 bg-light">
     <div class="container">
@@ -176,6 +194,13 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      setTimeout(function () {
+        $('.auto-hide').slideUp(300);
+      }, 7000);
+    });
+  </script>
   <!-- <script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script> -->
   <!-- <script> -->
       <!-- // CKEDITOR.replace( 'editor1' ); -->

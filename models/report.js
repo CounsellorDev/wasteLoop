@@ -4,32 +4,31 @@ const {Schema} = mongoose
 
 const reportSchema = new Schema({
     // registration
-    reportFullName:{
+    fullName:{
         type: String,
         required: true,
     },
-    reportPhoneNo:{
+    phoneNo:{
         type: String,
         required: true,
         unique: true
     },
-    reportAddress:{
+    address:{
         type: String,
         required: true,
     },
-    reportPickUpDay:{
+    pickUpDay:{
         type: Date,
         required: true
     },
-    reportPickUpTime:{
+    pickUpTime:{
         type: String,
         required: true
     },
-    reportDetails:{
+    details:{
         type: String,
         unique: true
-    },
-    active: Boolean
+    }
 })
 const Report = mongoose.model('Report', reportSchema)
 module.exports = Report;

@@ -69,6 +69,23 @@
         </div>
       </div>
     </div>
+    {{#if success_messages}}
+    <div class="alert alert-success alert-dismissible  show mt-2 auto-hide" role="alert" style="color: black">
+      <strong>{{success_messages}}</strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="close">
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+    {{/if}}
+    
+    {{#if error_messages}}
+    <div class="alert alert-danger alert-dismissible  show mt-2 auto-hide" role="alert" style="color: black">
+      <strong>{{error_messages}}</strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="close">
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+    {{/if}}
 
   
     <div class="site-blocks-cover inner-page overlay" style="background-image: url(images/banner.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
@@ -282,6 +299,13 @@
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
+  <script>
+    $(document).ready(function () {
+      setTimeout(function () {
+        $('.auto-hide').slideUp(300);
+      }, 7000);
+    });
+  </script>
 
   
   </body>

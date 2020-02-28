@@ -4,7 +4,7 @@ const {Schema} = mongoose
 
 const userSchema = new Schema({
     // registration
-    fullname:{
+    fullName:{
         type: String,
         required: true,
     },
@@ -12,7 +12,7 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    phoneNo:{
+    phoneNumber:{
         type: String,
         required: true,
         unique: true
@@ -21,11 +21,7 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    psw:{
-        type: String,
-        required: true,
-    },
-    cpsw:{
+    password:{
         type: String,
         required: true,
     }, 

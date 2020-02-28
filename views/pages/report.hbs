@@ -66,7 +66,23 @@
         </div>
       </div>
     </div>
+  {{#if success_messages}}
+  <div class="alert alert-success alert-dismissible  show mt-2 auto-hide" role="alert" style="color: black">
+    <strong>{{success_messages}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+  {{/if}}
   
+  {{#if error_messages}}
+  <div class="alert alert-danger alert-dismissible  show mt-2 auto-hide" role="alert" style="color: black">
+    <strong>{{error_messages}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+  {{/if}}
   
     {{!-- <div class="site-blocks-cover inner-page overlay" style="background-image: url(images/banner.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="row align-items-center justify-content-center">
@@ -122,18 +138,18 @@
           
             
           
-            <form action="/register" method="post" class="p-5 bg-white">
+            <form action="/report" method="post" class="p-5 bg-white">
 
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="fullname">Full Name</label>
-                  <input type="text" name="reportFullName" class="form-control" placeholder="Full Name">
+                  <input type="text" name="fullName" class="form-control" placeholder="Full Name">
                 </div>
               </div>
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="font-weight-bold" for="address">Address</label>
-                  <input name="reportAddress" type="text" class="form-control" placeholder="Email Address">
+                  <input name="address" type="text" class="form-control" placeholder="Email Address">
                 </div>
               </div>
 
@@ -141,14 +157,14 @@
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="phone">Phone Contact</label>
-                  <input type="tel" name="reportPhoneNo" class="form-control" placeholder="08+++++++++++++++++++">
+                  <input type="tel" name="phoneNo" class="form-control" placeholder="08+++++++++++++++++++">
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="pickUpDay">Pick Up Day</label>
-                  <input type="date" name="reportPickUpDay" class="form-control" placeholder="Address">
+                  <input type="date" name="pickUpDay" class="form-control" placeholder="Address">
                 </div>
               </div>
 
@@ -156,14 +172,14 @@
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="pickUpTime">Pick Up Time</label>
-                  <input type="time" name="reportPickUpTime" class="form-control" placeholder="Address">
+                  <input type="time" name="pickUpTime" class="form-control" placeholder="Address">
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="details">Any Helpful Details?</label>
-                  <input type="text" name="reportDetails" class="form-control" placeholder="Drop any Helpful Details Here...">
+                  <input type="text" name="details" class="form-control" placeholder="Drop any Helpful Details Here...">
                 </div>
               </div>
 
@@ -235,7 +251,13 @@
 
   <script src="js/main.js"></script>
 
-  
+  <script>
+    $(document).ready(function () {
+      setTimeout(function () {
+        $('.auto-hide').slideUp(300);
+      }, 7000);
+    });
+  </script>
 
   </body>
 </html>

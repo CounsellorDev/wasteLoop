@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const userAuthenticated = require('../config/middlewares')
 
 router.route('/').get((req, res)=>{
     res.render('pages/index')
@@ -13,12 +14,10 @@ router.route('/adminDash').get((req,res)=>{
 router.route('/contact').get((req,res)=>{
     res.render('pages/contact')
 })
-router.route('/login').get((req, res)=>(
-    res.render('pages/login')
-))
-router.route('/users').get((req, res)=>{
+router.route('/users').get(userAuthenticated,(req, res)=>{
     res.render('pages/users')
 })
+
 
 
 
