@@ -1,0 +1,15 @@
+
+<div class="container flash-message mt-5 text-center">
+   
+    <% if(success_message && success_message.length > 0) { %>
+    <div class="alert alert-success stay-small text-center">
+        <strong><%= success_message %></strong>
+    </div>
+    <% } %>
+
+    <% if(error_message && error_message.length > 0) { %>
+        <div class="alert alert-danger stay-small text-center">
+         <strong>   <%= error_message %> </strong>
+        </div>
+        <% } %>
+</div>

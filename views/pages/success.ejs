@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>.:: WasteLoop Cleaners</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,700|Work+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/css/animate.css">
+
+    <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="/css/aos.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+
+    <div class="site-wrap">
+
+
+
+        <div class="site-mobile-menu">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div> <!-- .site-mobile-menu -->
+
+
+        <div class="site-navbar-wrap js-site-navbar bg-white">
+
+            <div class="container">
+                <div class="site-navbar bg-light">
+                    <div class="row align-items-center">
+                        <div class="col-2">
+                            <h2 class="mb-0 site-logo"><a href="/" class="font-weight-bold text-uppercase">WasteLoop
+                                    Cleaners</a></h2>
+                        </div>
+                        <div class="col-10">
+                            <nav class="site-navigation text-right" role="navigation">
+                                <div class="container">
+                                    <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#"
+                                            class="site-menu-toggle js-menu-toggle text-black"><span
+                                                class="icon-menu h3"></span></a></div>
+                                    <ul class="site-menu js-clone-nav d-none d-lg-block">
+                                        <li class="active"><a href="/">Home</a></li>
+                                        <li><a href="/contact">Contact</a></li>
+                                        <% if (user) {%>
+                                        <li><a href="/report">Report a Waste</a></li>
+                                        <li><a href="/logout">Logout</a></li>
+                                        <li><a href="/dashboard">Dashboard</a></li>
+
+                                        <% } else { %>
+                                        <li><a href="/about">About Us</a></li>
+                                    <li><a href="/login"><span class="d-inline-block bg-primary text-white btn btn-primary">Login</span></a></li>
+                                    <li><a href="/register"><span class="d-inline-block bg-primary text-white btn btn-primary">Register</span></a>
+                                    </li>
+
+                                        <% } %>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div style="text-align: center;">
+            <header class="site-header" id="header">
+                <h3 class="site-header__title" data-lead-id="site-header-title">THANK YOU!!  <strong><%= userReport.fullName  %></strong> </h3>
+                <h4>Your Report Has Been Sent Successfully</h4>
+            </header>
+
+            <div class="main-content">
+                <i class="fas fa-check"></i>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg BUTTON" href="/"
+                        role="button">Back Home</a>
+                </p>
+
+            </div>
+        </div>
+
+        <footer class="site-footer bg-dark">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-12">
+                        <p>
+                            All rights reserved | counsellorDev </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="/js/jquery-ui.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/jquery.stellar.min.js"></script>
+    <script src="/js/jquery.waypoints.min.js"></script>
+    <script src="/js/jquery.animateNumber.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/main.js"></script>
+
+</body>
+
+</html>

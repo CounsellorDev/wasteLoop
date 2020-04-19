@@ -6,7 +6,7 @@ const Joi =require('@hapi/joi')
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
 
-
+// ======@hapi/joi schema validation==============
 const userSchema = Joi.object({
   fullName: Joi.string().required(),
   password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")),
@@ -15,7 +15,6 @@ const userSchema = Joi.object({
   phoneNumber:Joi.string().required(),
   address:Joi.string().required(),
 });
-
 
 router.route('/register')
     .get((req, res)=>{
@@ -27,22 +26,26 @@ router.route('/register')
             const result = await userSchema.validateAsync(req.body);
             if(result.error){
                 console.log('error validating user')
+                return req.flash('error','sorry something went wrong')
             }
         
             // ==============validating useremail=============
             const userEmail = await User.findOne({email:result.email})
             if(userEmail){
                 console.log('email already exist in our database')
-                req.flash('error', 'email alredy registerd')
-                return
+                req.flash('error', 'email alredy registered')
+                return res.redirect('/register')
             }
 
+            // ====================validating userNumber===============
             const userNumber = await User.findOne({phoneNumber:result.phoneNumber})
             if(userNumber){
+                console.log('phone number already exist registered')
                 req.flash('error', 'PhoneNumber already registered')
+                res.redirect('/register')
                 return
             }
-
+// ========checking if the password matches==============
             if(result.password !== result.confirmPassword){
                 console.log('password misatch')
                 req.flash('error', 'password mismatch')
@@ -76,23 +79,22 @@ router.route('/register')
    
 })
 
+// =====login get route=========
 router.get('/login',(req, res) => {
+    if(res.locals.user){
+        res.redirect('/')
+    }
     res.render("pages/login")
   })
-router.post("/login", (req, res) => {
+
+// ==============login post route================
+router.post("/login", (req, res,next) => {
     passport.authenticate("local", {
-      successRedirect: "/users",
-      failureRedirect: "/",
+      successRedirect: "/dashboard",
+      failureRedirect: "/login",
       successFlash:true,
       failureFlash:true
-    })(req, res);
+    })(req, res,next);
   });
-
-router.get('/logout', (req, res)=>{
-    req.logOut()
-    req.flash('success', 'logout successful')
-    res.redirect('/')
-    return
-})
 
 module.exports = router

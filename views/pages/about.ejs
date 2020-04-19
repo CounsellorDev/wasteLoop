@@ -1,36 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>.:: WasteLoop Cleaners</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Oswald:400,700|Work+Sans:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+<head>
+  <title>.:: WasteLoop Cleaners</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/animate.css">    
-    
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-  
-    <link rel="stylesheet" href="css/aos.css">
 
-    <link rel="stylesheet" href="css/style.css">
-    
-  </head>
-  <body>
-  
- 
-  </div>
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,700|Work+Sans:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/animate.css">
+
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
 
   <div class="site-wrap">
 
-    
+
 
     <div class="site-mobile-menu">
       <div class="site-mobile-menu-header">
@@ -40,27 +41,37 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div> <!-- .site-mobile-menu -->
-    
-    
+
+
     <div class="site-navbar-wrap js-site-navbar bg-white">
-      
+
       <div class="container">
         <div class="site-navbar bg-light">
           <div class="row align-items-center">
             <div class="col-2">
-              <h2 class="mb-0 site-logo"><a href="/" class="font-weight-bold text-uppercase">WasteLoop Cleaners</a></h2>
+              <h2 class="mb-0 site-logo"><a href="/" class="font-weight-bold text-uppercase">WasteLoop
+                  Cleaners</a></h2>
             </div>
             <div class="col-10">
               <nav class="site-navigation text-right" role="navigation">
                 <div class="container">
-                  <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+                  <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#"
+                      class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
                   <ul class="site-menu js-clone-nav d-none d-lg-block">
                     <li class="active"><a href="/">Home</a></li>
                     <li><a href="/contact">Contact</a></li>
-                    <li class="active"><a href="/report">Report a Waste</a></li>
+                    <% if (user) {%>
+                    <li><a href="/report">Report a Waste</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                    <li><a href="/dashboard">Dashboard</a></li>
+
+                    <% } else { %>
                     <li><a href="/about">About Us</a></li>
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="/register"><span class="d-inline-block bg-primary text-white btn btn-primary">Register</span></a></li>
+                    <li><a href="/login"><span class="d-inline-block bg-primary text-white btn btn-primary">Login</span></a></li>
+                    <li><a href="/register"><span class="d-inline-block bg-primary text-white btn btn-primary">Register</span></a>
+                    </li>
+
+                    <% } %>
                   </ul>
                 </div>
               </nav>
@@ -69,23 +80,20 @@
         </div>
       </div>
     </div>
-    {{#if success_messages}}
-    <div class="alert alert-success alert-dismissible  show mt-2 auto-hide" role="alert" style="color: black">
-      <strong>{{success_messages}}</strong>
-      <button type="button" class="close" data-dismiss="alert" aria-label="close">
-        <span aria-hidden="true"></span>
-      </button>
+    <div class="container flash-message mt-5 text-center">
+  
+    <% if(success_messages && success_messages.length > 0) { %>
+    <div class="alert alert-success stay-small text-center auto-hide">
+      <strong><%= success_messages %></strong>
     </div>
-    {{/if}}
-    
-    {{#if error_messages}}
-    <div class="alert alert-danger alert-dismissible  show mt-2 auto-hide" role="alert" style="color: black">
-      <strong>{{error_messages}}</strong>
-      <button type="button" class="close" data-dismiss="alert" aria-label="close">
-        <span aria-hidden="true"></span>
-      </button>
+    <% } %>
+  
+    <% if(error_messages && error_messages.length > 0) { %>
+    <div class="alert alert-danger stay-small text-center auto-hide">
+      <strong> <%= error_messages %> </strong>
     </div>
-    {{/if}}
+    <% } %>
+  </div>
 
   
     <div class="site-blocks-cover inner-page overlay" style="background-image: url(images/banner.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
@@ -303,7 +311,7 @@
     $(document).ready(function () {
       setTimeout(function () {
         $('.auto-hide').slideUp(300);
-      }, 7000);
+      }, 5000);
     });
   </script>
 

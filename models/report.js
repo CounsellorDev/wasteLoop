@@ -8,7 +8,7 @@ const reportSchema = new Schema({
         type: String,
         required: true,
     },
-    phoneNo:{
+    phoneNumber:{
         type: String,
         required: true,
         unique: true
@@ -18,7 +18,7 @@ const reportSchema = new Schema({
         required: true,
     },
     pickUpDay:{
-        type: Date,
+        type: String,
         required: true
     },
     pickUpTime:{
@@ -27,7 +27,19 @@ const reportSchema = new Schema({
     },
     details:{
         type: String,
-        unique: true
+        required:false
+    },
+    date:{
+        type:String,
+        required:true
+    },
+    userId:{
+        type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true
     }
 })
 const Report = mongoose.model('Report', reportSchema)
