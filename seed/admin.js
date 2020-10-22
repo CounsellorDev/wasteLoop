@@ -15,10 +15,10 @@ const newAdmin = new Admin({
     password:'12345'
 })
 
- bcrypt.genSalt(10, (err, salt) => {
-    bcrypt.hash(newAdmin.password, salt, (err, hash) => {
-        if (err) {
-            console.log('hashing failed')
+//  bcrypt.genSalt(10, (err, salt) => {
+//     bcrypt.hash(newAdmin.password, salt, (err, hash) => {
+//         if (err) {
+//             console.log('hashing failed')
         }
         newAdmin.password = hash
         newAdmin.save().then(admin => {
