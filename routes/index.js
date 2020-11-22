@@ -12,6 +12,12 @@ router.get('/',(req, res)=>{
 router.route('/about').get((req, res)=>{
     res.render('pages/about')
 })
+
+router.route('/team').get((req, res)=>{
+    res.render('pages/team')
+})
+
+
 router.route('/dashboard').get(isUser,async(req,res)=>{
     let user = req.user
     let userType = req.user.usertype

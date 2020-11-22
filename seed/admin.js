@@ -10,9 +10,9 @@ mongoose.connect(Mongodb, { useNewUrlParser: true, useUnifiedTopology: true}).th
 })
 
 const newAdmin = new Admin({
-    fullName:'Stephen Edache',
-    email:'mishealezekiel4@gmail.com',
-    password:'12345'
+    fullName:'Vom - Admin',
+    email:'admin@wlc.com',
+    password:'10102020'
 })
 
  bcrypt.genSalt(10, (err, salt) => {

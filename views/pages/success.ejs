@@ -60,14 +60,15 @@
                                                 class="icon-menu h3"></span></a></div>
                                     <ul class="site-menu js-clone-nav d-none d-lg-block">
                                         <li class="active"><a href="/">Home</a></li>
-                                        <li><a href="/contact">Contact</a></li>
+                                        <li><a href="/about">About Us</a></li>
+                                        <li><a href="/contact">Contact Us</a></li>
+                                        <li><a href="/team">Our Team</a></li>
                                         <% if (user) {%>
                                         <li><a href="/report">Report a Waste</a></li>
                                         <li><a href="/logout">Logout</a></li>
                                         <li><a href="/dashboard">Dashboard</a></li>
 
                                         <% } else { %>
-                                        <li><a href="/about">About Us</a></li>
                                     <li><a href="/login"><span class="d-inline-block bg-primary text-white btn btn-primary">Login</span></a></li>
                                     <li><a href="/register"><span class="d-inline-block bg-primary text-white btn btn-primary">Register</span></a>
                                     </li>
@@ -82,29 +83,74 @@
             </div>
         </div>
     
+        <br>
         <div style="text-align: center;">
             <header class="site-header" id="header">
-                <h3 class="site-header__title" data-lead-id="site-header-title">THANK YOU!!  <strong><%= userReport.fullName  %></strong> </h3>
+                <h3 class="site-header__title" data-lead-id="site-header-title">THANK YOU!! <br> <strong><%= userReport.fullName  %></strong> </h3>
                 <h4>Your Report Has Been Sent Successfully</h4>
             </header>
-
+            <div class="site-section first-section">
+                <div class="container">
+                  <div class="row mb-5">
+                    <div class="col-md-12 text-center" data-aos="fade"> 
+                      <span class="caption d-block mb-2 font-secondary font-weight-bold">Explore our List of Outstanding Services</span>
+                      <h2 class="site-section-heading text-uppercase text-center font-secondary">We clean and help you maintain a clean home</h2>
+                    </div>
+                  </div>
+                  <div class="row border-responsive">
+                    <div class="col-md-6 col-lg-3 mb-4 mb-lg-0 border-right" data-aos="fade-up" data-aos-delay="">
+                      <div class="text-center">
+                        <span class="flaticon-money-bag-with-dollar-symbol display-4 d-block mb-3 text-primary"></span>
+                        <h3 class="text-uppercase h4 mb-3">Minimised Cost</h3>
+                        <p>We run our services at a reduced cost.</p>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4 mb-lg-0 border-right" data-aos="fade-up" data-aos-delay="100">
+                      <div class="text-center">
+                        <span class="flaticon-bar-chart display-4 d-block mb-3 text-primary"></span>
+                        <h3 class="text-uppercase h4 mb-3">Analytics</h3>
+                        <p>Trust us when it comes to this aspect.</p>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4 mb-lg-0 border-right" data-aos="fade-up" data-aos-delay="200">
+                      <div class="text-center">
+                        <span class="flaticon-medal display-4 d-block mb-3 text-primary"></span>
+                        <h3 class="text-uppercase h4 mb-3">Experience</h3>
+                        <p>We have the best hands to tidy the environment.</p>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
+                      <div class="text-center">
+                        <span class="flaticon-box display-4 d-block mb-3 text-primary"></span>
+                        <h3 class="text-uppercase h4 mb-3">Proper Package</h3>
+                        <p>we don't litter, we Package dirt properly</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          
+              
             <div class="main-content">
                 <i class="fas fa-check"></i>
                 <p class="lead">
-                    <a class="btn btn-primary btn-lg BUTTON" href="/"
+                    <a class="btn btn-primary btn-lg BUTTON" href="/dashboard"
                         role="button">Back Home</a>
                 </p>
 
             </div>
         </div>
 
+        
+
         <footer class="site-footer bg-dark">
             <div class="container">
                 <div class="row text-center">
                     <div class="col-md-12">
                         <p>
-                            All rights reserved | counsellorDev </a>
-                        </p>
+                            &copy; 2020 All rights reserved | Jos - Made </a>
+                         
+                          </p>
                     </div>
                 </div>
             </div>
