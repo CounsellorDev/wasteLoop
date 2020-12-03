@@ -43,79 +43,184 @@
     </div> <!-- .site-mobile-menu -->
 
 
-  
-    <div class="slide-one-item home-slider owl-carousel">
-      
-      <div class="site-blocks-cover inner-page overlay" style="background-image: url(images/banner.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
-        <div class="container">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-md-6 text-center" data-aos="fade">
-              <h1 class="font-secondary  font-weight-bold text-uppercase">Hacked!!! - Contact Admin</h1>
-            </div>
-          </div>
-        </div>
-      </div>  
+    <div class="site-navbar-wrap js-site-navbar bg-white">
 
-      <div class="site-blocks-cover inner-page overlay" style="background-image: url(images/banner3.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
-        <div class="container">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-md-7 text-center" data-aos="fade">
-              <h1 class="font-secondary font-weight-bold text-uppercase">We Clean Code</h1>
-            </div>
-          </div>
-        </div>
-      </div> 
-    </div>
-
-
-
-    
-
-
-
-    
-
-    <footer class="site-footer bg-dark">
       <div class="container">
-        
+        <div class="site-navbar bg-light">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <h2 class="mb-0 site-logo"><a href="/" class="font-weight-bold text-uppercase">WasteLoop
+                  Cleaners</a></h2>
+            </div>
+            <div class="col-10">
+              <nav class="site-navigation text-right" role="navigation">
+                <div class="container">
+                  <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#"
+                      class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+                  <ul class="site-menu js-clone-nav d-none d-lg-block">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/team">Our Team</a></li>
+                    <% if (user) {%>
+                    <li><a href="/report">Report a Waste</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                    <li><a href="/dashboard">Dashboard</a></li>
 
-     
-        <div class="row text-center">
-          <div class="col-md-12">
-            <p>
-              &copy; 2020 All rights reserved | Hacked!!! </a>
-           
-            </p>
+                    <% } else { %>
 
-            
+                  <li><a href="/login"><span class="d-inline-block bg-primary text-white btn btn-primary">Login</span></a></li>
+                  <li><a href="/register"><span class="d-inline-block bg-primary text-white btn btn-primary">Register</span></a>
+                  </li>
+
+                    <% } %>
+                  </ul>
+                </div>
+              </nav>
+            </div>
           </div>
-          
         </div>
       </div>
-    </footer>
+    </div>
+    <div class="container flash-message mt-5 text-center">
+
+  <% if(success_messages && success_messages.length > 0) { %>
+  <div class="alert alert-success stay-small text-center auto-hide">
+    <strong><%= success_messages %></strong>
   </div>
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/jquery-migrate-3.0.1.min.js"></script>
-<script src="js/jquery-ui.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.stellar.min.js"></script>
+  <% } %>
 
-<script src="js/jquery.waypoints.min.js"></script>
-<script src="js/jquery.animateNumber.min.js"></script>
-<script src="js/aos.js"></script>
+  <% if(error_messages && error_messages.length > 0) { %>
+  <div class="alert alert-danger stay-small text-center auto-hide">
+    <strong> <%= error_messages %> </strong>
+  </div>
+  <% } %>
+</div>
+  
+    <div class="site-blocks-cover inner-page overlay" style="background-image: url(images/banner.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-5 text-center" data-aos="fade">
+          <h1 class="text-uppercase">Report a waste</h1>
+        </div>
+      </div>
+    </div>   
+    
+    <div class="slant-1"></div>
 
-<script src="js/main.js"></script>
-<script>
-  $(document).ready(function () {
-    setTimeout(function () {
-      $('.auto-hide').slideUp(300);
-    }, 5000);
-  });
-</script>
+    
+    
+  <div class="site-section first-section" data-aos="fade">
+      <div class="container">
+        <div class="row">
+       
+          <div class="col-md-12 col-lg-8 mb-5">
+          
+            <form action="/report/<%= user.id%>" method="post" class="p-5 bg-white">
+              
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="font-weight-bold" for="address">Location</label>
+                  <input name="address" type="text" class="form-control" placeholder="location">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="pickUpDay">Pick Up Day</label>
+                  <input type="date" name="pickUpDay" class="form-control" placeholder="Address">
+                </div>
+              </div>
 
 
-</body>
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="pickUpTime">Pick Up Time</label>
+                  <input type="time" name="pickUpTime" class="form-control" placeholder="Address">
+                </div>
+              </div>
 
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="details">Any Helpful Details?</label>
+                  <input type="text" name="details" class="form-control" placeholder="Drop any Helpful Details Here...">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="submit" value="Report" class="btn btn-primary text-white px-4 py-2">
+                </div>
+              </div>
+
+  
+            </form>
+          </div>
+
+      
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section bg-dark block-14 nav-direction-white mb-0">
+
+
+
+      
+      <div class="py-5 bg-primary">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-6 text-center mb-3 mb-md-0">
+              <h2 class="text-uppercase text-white mb-4" data-aos="fade-up">Have a Review</h2>
+              <a href="/contact" class="btn btn-bg-primary font-secondary text-uppercase" data-aos="fade-up" data-aos-delay="100">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+  
+      
+  
+      <footer class="site-footer bg-dark">
+        <div class="container">
+          
+  
+       
+          <div class="row text-center">
+            <div class="col-md-12">
+              <p>
+               All rights reserved | Confluence Trio </a>
+             
+              </p>
+  
+              
+            </div>
+            
+          </div>
+        </div>
+      </footer>
+  </div>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/aos.js"></script>
+
+  <script src="js/main.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      setTimeout(function () {
+        $('.auto-hide').slideUp(300);
+      }, 5000);
+    });
+  </script>
+
+  </body>
 </html>
